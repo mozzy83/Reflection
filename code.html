@@ -3,7 +3,7 @@
 
 
 <head>
-    <title>App Name: A Coding Project By Matt Osberg</title>
+    <title>Reflection: A Coding Project By Matt Osberg</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -24,7 +24,7 @@
 
     <nav class="navbar navbar-expand-md navbar-dark fixed-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img src="img/favicon.png" class="d-inline-block align-text-top" alt="Matt Osberg Logo" width="30" height="24"> APP NAME</a>
+        <a class="navbar-brand logoFont" href="#"><img src="img/favicon.png" class="d-inline-block align-text-top" alt="Matt Osberg Logo" width="30" height="24"> Reflection</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -41,10 +41,10 @@
                     <a class="nav-link active" aria-current="page" href="code.html">The Code</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" target="_blank" href="#">Git Repo</a>
+                    <a class="nav-link" target="_blank" href="https://github.com/mozzy83/Reflection.git">Git Repo</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" target="_blank" href="#">About</a>
+                    <a class="nav-link" target="_blank" href="https://www.linkedin.com/in/matt-osberg">About</a>
                 </li>
             </ul>
         </div>
@@ -55,22 +55,51 @@
 
         <main class="flex-shrink-0">
             <div class="container py-4 px-5 mt-5">
-                <h2 class="border-1 border-bottom border-dark">The Code for Loopty.</h2>
+                <h2 class="border-1 border-bottom border-dark">The Code for Reflection.</h2>
                 <div class="row row-cols-1 row-cols-lg-2">
                     <div class="col col-lg-8">
                         <pre class="line-numbers">
                             <code class="language-javascript">
-//Call Hello World
-function helloWorld() {
-    alert("Wello World");
+//Get String from input
+//Controller Function
+function getValue() {
+    document.getElementById("alert").classList.add("invisible");
+    let userString = document.getElementById("userString").value;
+    if(userString.length < 2){alert("Value must be longer than two characters to reverse")}
+    else{let revString = reverseString(userString);
+    displayString(revString);}
+}
+//Reverse the string
+//Logic Function
+function reverseString(userString) {
+    let revString = [];
+    //reverse a string using a for loop
+    for (let i = userString.length - 1; i >= 0; i--) {
+        revString += userString[i];        
+    }
+    return revString;
+}
+//Display reversed string to user
+//View Function
+function displayString(revstring) {
+    //write to the page
+    document.getElementById("msg").innerHTML = `Your string's reflection:<br> ${revstring}`;
+    //show alert box
+    document.getElementById("alert").classList.remove("invisible");
 }
                             </code>
                         </pre>
                     </div>
                     <div class="col col-lg-4">
-                        <p>The Code is structured in one function.</p>
-                        <h5>Hello World</h5>
-                        <p>Hello World is a function that displays an alert with a message of "Hello World"</p>
+                        <p>The Code is structured in three main functions.</p>
+                        <h5>getValue()</h5>
+                        <p>The first function called initially verifies that the div where the final results will be displayed is invisible to the user. It then declares a variable and sets it to the value the user entered. Next it verifies that the value is longer than 2 characters so it can be reversed and if it is it sends the value to the next function...</p>
+                        <h5>reverseString()</h5>
+                        <p>This function declares an array and uses a simple For Loop to populate it. Since a string is an array the For Loop is able to iterate through it working from the last index to the first index appending each character to the new array as it goes.<br><br>
+                        The function then returns the new array to be used by the last function...
+                        </p>
+                        <h5>displayString()</h5>
+                        <p>The final function puts the reversed string into a template literal so it can be used as the HTML for the paragraph where it will be displayed. The final step is to make the div containing the results visible.</p>
                     </div>
                 </div>
             </div>

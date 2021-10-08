@@ -1,6 +1,9 @@
 :root {
-    --primary-color: #1d5888;
-    --secondary-color: #ff993b;
+    /* --primary-color: #1d5888; */
+    /* --primary-color: #599aa0; */
+    --primary-color: #59606d;
+    /* --secondary-color: #ff993b; */
+    --secondary-color: #70acb1;
     --dark-color: #292929;
     --white-color: #e7e7e7;
 }
@@ -39,6 +42,18 @@ footer .social>a:hover {
     opacity: 0.75;;
 }
 
+.descColor {
+    color: #299099;
+}
+
+.secColor {
+    color: #55898f;
+}
+
+.logoFont{
+    font-family: 'Roboto Mono', monospace;;
+}
+
 .bsicon {
     color: purple;
 }
@@ -75,4 +90,7 @@ main>.container {
     left: 0;
     bottom: 0;
     width: 100%;
+}
+#msg {
+    word-wrap: break-word;
 }
