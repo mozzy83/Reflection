@@ -62,17 +62,42 @@
                 <div class="col-lg-8">
                     <pre class="line-numbers">
                         <code class="language-javascript">
-                            //Call Hello World
-                            function HellowWorld(){
-                                    alert("Hello World");
-                                }
+//Get string from UI
+function getValue(){
+    document.getElementById("alert").classList.add("invisible");
+
+    let userString = document.getElementById("userString").value;
+    let revString = reverseString(userString);
+
+    displayString(revString);
+}
+
+//Reverse the string
+function reverseString(userString){
+    let revString = [];
+
+    for (let index = userString.length-1; index >= 0; index--) {
+        revString += userString[index]; 
+    }
+    return revString;
+}
+
+//Display reversed string
+function displayString(revString){
+    document.getElementById("msg").innerHTML = `Your string's reflection is: ${revString}`;
+    document.getElementById("alert").classList.remove("invisible");
+}
                         </code>
                     </pre>
                 </div>
                 <div class="col-lg-4">
-                    <p>The code is structured in one function.</p>
-                    <h5>Hello World</h5>
-                    <p>Hello World is a function that displays an alert with a message of "Hello World"</p>
+                    <p>The code is structured in three main functions.</p>
+                    <h5>getValue()</h5>
+                    <p>The first function starts by ensuring our display area for our end result is set to invisible. It then retrieves the string entered by the user and sets it to a variable. The variable is then sent to our next function...</p>
+                    <h5>reverseString()</h5>
+                    <p>Our second main function begins by declaring an empty array that it can use to construct the reversed string in. It then uses a for loop to iterate through the string, assigning the values into the new array starting at the end and working towards the beginning. Lastly, the function returns the array containing the string reversed.</p>
+                    <h5>displayString()</h5>
+                    <p>The final main function starts by accessing the element it will display the result in and assigns it as the inner HTML as part of a template literal. The final step is to remove the "invisible" class attribute so the results can be seen.</p>
                 </div>
             </div>
         </div>
